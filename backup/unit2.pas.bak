@@ -1,0 +1,66 @@
+unit Unit2;
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils;
+type
+  vec4d=record
+    x,y,z,w:real;
+  end;
+
+implementation
+
+function rotateXY(inVec:vec4d;angle:real):vec4d;
+begin
+         rotateXY.x:=inVec.x*cos(angle)-inVec.y*sin(angle);
+         rotateXY.y:=inVec.x*sin(angle)+inVec.y*cos(angle);
+         rotateXY.z:=inVec.z;
+         rotateXY.w:=inVec.w;
+end;
+
+function rotateXZ(inVec:vec4d;angle:real):vec4d;
+begin
+         rotateXZ.x:=inVec.x*cos(angle)-inVec.z*sin(angle);
+         rotateXZ.y:=inVec.y;
+         rotateXZ.z:=inVec.x*sin(angle)+inVec.z*cos(angle);
+         rotateXZ.w:=inVec.w;
+end;
+
+function rotateXW(inVec:vec4d;angle:real):vec4d;
+begin
+         rotateXW.x:=inVec.x*cos(angle)-inVec.w*sin(angle);
+         rotateXW.y:=inVec.y;
+         rotateXW.z:=inVec.z;
+         rotateXW.w:=inVec.x*sin(angle)+inVec.w*cos(angle);
+end;
+
+function rotateYZ(inVec:vec4d;angle:real):vec4d;
+begin
+         rotateYZ.x:=inVec.x;
+         rotateYZ.y:=inVec.y*cos(angle)-inVec.z*sin(angle);
+         rotateYZ.z:=inVec.y*sin(angle)+inVec.z*cos(angle);
+         rotateYZ.w:=inVec.w;
+end;
+
+function rotateYW(inVec:vec4d;angle:real):vec4d;
+begin
+         rotateYW.x:=inVec.x;
+         rotateYW.y:=inVec.y*cos(angle)-inVec.w*sin(angle);
+         rotateYW.z:=inVec.z;
+         rotateYW.w:=inVec.y*sin(angle)+inVec.w*cos(angle);
+end;
+
+function rotateZW(inVec:vec4d;angle:real):vec4d;
+begin
+         rotateZW.x:=inVec.x;
+         rotateZW.y:=inVec.y;
+         rotateZW.z:=inVec.z*cos(angle)-inVec.w*sin(angle);
+         rotateZW.w:=inVec.z*sin(angle)+inVec.w*cos(angle);
+
+end;
+
+end.
+
